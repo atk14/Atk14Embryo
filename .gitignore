@@ -1,0 +1,7 @@
+!tmp/README
+tmp/*
+!log/README
+log/*
+!robots/lock/README.md
+robots/lock/*
+config/secret_token.txt

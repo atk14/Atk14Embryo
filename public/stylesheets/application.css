@@ -1,0 +1,29 @@
+body {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	background-color: black;
+	color: #009900;
+	text-align: center;
+}
+
+a, a:visited, a:hover{
+	color: #009900;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	background: #009900;
+}
+
+.footer {
+	margin: 6em auto 2em auto;
+	width: 80%;
+	border-top: 1px solid #009900;
+	font-size: 0.75em;
+}
+

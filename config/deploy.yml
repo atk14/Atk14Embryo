@@ -1,0 +1,18 @@
+# This is a recipe how to deploy this application to our production environment
+#
+# You can run the deployment process by typing
+#  $ ./scripts/deploy production
+#
+# or just
+#  $ ./scripts/deploy
+#
+
+production:
+  server: "kajka"                                                                # we are deploying on this server
+  user: "devel"                                                                  # we are deploying as this user
+  url: "http://embryo.atk14.net/"
+  directory: "/home/devel/apps/embryo.atk14.net/production/"                     # in this directory is this application installed on the server
+  deploy_via: "git_push"                                                         # at the moment this is the only way how to deploy
+  deploy_repository: "devel@kajka:apps/embryo.atk14.net/repos/production.git"    # this is the URL of deployment git repository with a proper post-receive hook
+  deploy_branch: "master"                                                        # the name of the branch in deployment repository
+  rsync: []
