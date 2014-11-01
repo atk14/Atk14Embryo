@@ -21,13 +21,12 @@ If you are experiencing a trouble make sure that all requirements are met: <http
 Starting the embryo
 -------------------
 
-Run the development server
+Start the development server
 
 ```bash
 ./scripts/server
 ```
 
-and you may found the running embryo on http://localhost:8000/
+and you may find the running embryo on http://localhost:8000/
 
-Don't forget to list your new application on http://www.atk14sites.net/
-
+Don't forget to list your new project on http://www.atk14sites.net/
