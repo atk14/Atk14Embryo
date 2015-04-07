@@ -29,4 +29,11 @@ Start the development server
 
 and you may find the running embryo on http://localhost:8000/
 
+If you have Apache installed, you may want to install the application to a virtual server.
+Follow instructions from the following command.
+
+```bash
+./scripts/virtual_host_configuration
+```
+
 Don't forget to list your new project on http://www.atk14sites.net/
