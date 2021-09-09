@@ -8,11 +8,13 @@
 #
 
 production:
-  server: "kajka"                                                                # we are deploying on this server
-  user: "devel"                                                                  # we are deploying as this user
   url: "http://embryo.atk14.net/"
-  directory: "/home/devel/apps/embryo.atk14.net/production/"                     # in this directory is this application installed on the server
-  deploy_via: "git_push"                                                         # at the moment this is the only way how to deploy
-  deploy_repository: "devel@kajka:apps/embryo.atk14.net/repos/production.git"    # this is the URL of deployment git repository with a proper post-receive hook
-  deploy_branch: "master"                                                        # the name of the branch in deployment repository
+  server: "cloudkicker.plovarna.cz"                                           # we are deploying on this server
+  user: "devel"                                                               # we are deploying as this user
+  directory: "/home/{{user}}/apps/embryo.atk14.net/production/"               # in this directory is this application installed on the server
+  deploy_repository: "{{user}}@{{server}}:apps/embryo.atk14.net/repos/production.git" # this is the URL of deployment git repository with a proper post-receive hook
   rsync: []
+  after_deploy:
+  - "./scripts/migrate && ./scripts/delete_temporary_files dbmole_cache"
+
+# vim: et:ts=2

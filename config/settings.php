@@ -14,12 +14,16 @@
  *	$ ./scripts/dump_settings DEFAULT_EMAIL
  */
 
-define("SECRET_TOKEN",PRODUCTION ? Files::GetFileContent(dirname(__FILE__)."/secret_token.txt") : "_please_put_here_a_lot_of_random_chars_");
+definedef("DEFAULT_EMAIL","your@email.com");
+definedef("ATK14_ADMIN_EMAIL",DEFAULT_EMAIL); // the address for sending error reports and so on...
 
-define("DEFAULT_EMAIL","your@email.com");
+definedef("ATK14_APPLICATION_NAME","ATK14 embryo");
+definedef("ATK14_APPLICATION_DESCRIPTION","Yet another application running on ATK14 Framework");
 
-define("ATK14_APPLICATION_NAME","ATK14 embryo");
-define("ATK14_HTTP_HOST",PRODUCTION ? "embryo.atk14.net" : "atk14embryo.localhost");
+definedef("ATK14_HTTP_HOST",PRODUCTION ? "embryo.atk14.net" : "atk14embryo.localhost");
+
+date_default_timezone_set('Europe/Prague');
+
 
 if(DEVELOPMENT || TEST){
 	// a place for development and testing environment settings
@@ -30,4 +34,7 @@ if(DEVELOPMENT || TEST){
 if(PRODUCTION){
 	// a place for production environment settings
 
+	if(php_sapi_name()!="cli"){
+		ini_set("display_errors","0");
+	}
 }
