@@ -64,7 +64,7 @@ install:
 
 # The phpunit/phpunit 7.5.20 package is compatible with PHP ^7.1 and also works on PHP 8.*
 before_script:
-  - travis_retry composer install --dev --no-interaction --prefer-dist
+#  - travis_retry composer install --dev --no-interaction --prefer-dist
   - composer require --dev --ignore-platform-reqs "phpunit/phpunit=7.5.20" 2>&1
   - echo "y" | ATK14_ENV=test ./scripts/create_database 2>&1
   - echo "SELECT VERSION()" | ATK14_ENV=test ./scripts/dbconsole
