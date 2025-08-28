@@ -7,11 +7,11 @@
  */
 class TcBase extends TcAtk14Model{
 
-	function setUp(){
+	function _setUp(){
 		$this->dbmole->begin();
 	}
 
-	function tearDown(){
+	function _tearDown(){
 		$this->dbmole->rollback();
 	}
 }
