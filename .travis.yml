@@ -33,26 +33,35 @@ jobs:
       dist: jammy
       language: ruby
       addons:
+        postgresql: "14"
       before_install:
         - sudo apt install software-properties-common
         - sudo add-apt-repository ppa:ondrej/php
         - sudo apt update
         - sudo apt install php8.2 php8.2-mbstring php8.2-cli php8.2-pgsql php8.2-readline php8.2-gd php8.2-xml
         - php -v
-        - sudo apt-get install postgresql-16 postgresql-client-16
-        - "sed -i 's/test:/test:\\n  port: 5433/' config/database.yml 2>&1"
     - name: "PHP: 8.3"
       dist: jammy
       language: ruby
       addons:
+        postgresql: "14"
       before_install:
         - sudo apt install software-properties-common
         - sudo add-apt-repository ppa:ondrej/php
         - sudo apt update
         - sudo apt install php8.3 php8.3-mbstring php8.3-cli php8.3-pgsql php8.3-readline php8.3-gd php8.3-xml
         - php -v
-        - sudo apt-get install postgresql-16 postgresql-client-16
-        - "sed -i 's/test:/test:\\n  port: 5433/' config/database.yml 2>&1"
+    - name: "PHP: 8.4"
+      dist: jammy
+      language: ruby
+      addons:
+        postgresql: "14"
+      before_install:
+        - sudo apt install software-properties-common
+        - sudo add-apt-repository ppa:ondrej/php
+        - sudo apt update
+        - sudo apt install php8.4 php8.4-mbstring php8.4-cli php8.4-pgsql php8.4-readline php8.4-gd php8.4-xml
+        - php -v
 
 install:
   - sudo locale-gen en_US.UTF-8
@@ -65,7 +74,8 @@ install:
 # The phpunit/phpunit 7.5.20 package is compatible with PHP ^7.1 and also works on PHP 8.*
 before_script:
 #  - travis_retry composer install --dev --no-interaction --prefer-dist
-  - composer require --dev --ignore-platform-reqs "phpunit/phpunit=7.5.20" 2>&1
+  - composer require --dev "phpunit/phpunit" "7.5.20|8.5.41|9.6.22" 2>&1
+  - composer config --global use-parent-dir true
   - echo "y" | ATK14_ENV=test ./scripts/create_database 2>&1
   - echo "SELECT VERSION()" | ATK14_ENV=test ./scripts/dbconsole
   - ATK14_ENV=test ./scripts/migrate
