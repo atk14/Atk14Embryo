@@ -1,0 +1,7 @@
+{
+    "require": {
+    },
+    "require-dev": {
+        "atk14/tester": "^0.5"
+    }
+}
