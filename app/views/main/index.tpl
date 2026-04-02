@@ -1,4 +1,4 @@
-<h1>ATK14 embryo</h1>
+<h1>ATK14 Embryo</h1>
 
 <img src="{$public}images/embryo.jpg" alt="ATK14 embryo">
 
