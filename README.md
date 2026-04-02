@@ -13,6 +13,7 @@ git clone https://github.com/atk14/Atk14Embryo.git
 cd Atk14Embryo
 git submodule init
 git submodule update
+composer install
 ./scripts/create_database
 ./scripts/migrate
 ```
