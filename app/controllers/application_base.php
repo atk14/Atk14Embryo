@@ -38,7 +38,7 @@ class ApplicationBaseController extends Atk14Controller{
 	function _application_before_filter(){
 		$this->response->setContentType("text/html");
 		$this->response->setContentCharset(DEFAULT_CHARSET);
-		$this->response->setHeader("X-Powered-By","ATK14 Framework");
+		// $this->response->setHeader("X-Powered-By","ATK14 Framework");
 	}
 
 	function _application_after_filter(){
